@@ -1,0 +1,60 @@
+<form action="" (ngSubmit)="onSubmit()">
+  <div class="subsriptionBox contentHolder ">
+    <div class="row noMargin alignCenter" style="justify-content: flex-start">
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">Asset:</div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <mat-form-field>
+          <mat-select [(value)]="selectedAsset" [formControl]="assetValidator" required>
+            <mat-option [value]="asset" *ngFor="let asset of Assets" (click)="assetClicked()">{{asset}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="assetValidator.invalid">{{getDropdownError()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row noMargin alignCenter" style="justify-content: flex-start">
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">Metrics:</div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <mat-form-field>
+          <mat-select [(value)]="selectedMetric" [formControl]="multipleMetrics" multiple required>
+            <mat-select-trigger>
+              {{multipleMetrics.value ? multipleMetrics.value[0] : ''}}
+              <span *ngIf="multipleMetrics.value?.length > 1" class="example-additional-selection">
+                (+{{multipleMetrics.value.length - 1}} {{multipleMetrics.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option [value]="metric" *ngFor="let metric of Metrics">{{metric}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="multipleMetrics.invalid">{{getDropdownError()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row noMargin alignCenter" style="justify-content: flex-start">
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">Cadence:</div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <mat-form-field>
+          <mat-select [(value)]="selectedCadence" [formControl]="cadenceValidator" required>
+            <mat-option [value]="cadence" *ngFor="let cadence of Cadences">{{cadence}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="cadenceValidator.invalid">{{getDropdownError()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row noMargin alignCenter">
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">Email:</div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <mat-form-field>
+          <input matInput placeholder="Enter your email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row noMargin">
+      <button 
+        style="float: right" 
+        mat-button 
+        mat-raised-button 
+        color="primary"
+        type="submit">Subscribe</button>
+    </div>
+  </div>
+</form>

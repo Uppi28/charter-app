@@ -1,0 +1,13 @@
+.contentHolder{
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 15px;
+}
+
+.dropdownHolder{
+    padding: 5px 10px;
+}
+
+mat-form-field{
+    width: 100%;
+}

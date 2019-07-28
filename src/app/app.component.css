@@ -1,3 +1,11 @@
+.wrapperBg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(5px);
+}
+
 .wrapper{
     width: 100%;
     height: 100%;
@@ -12,28 +20,25 @@
 }
 
 .content{
-    height: 75%;
+    height: 80%;
+    /* overflow: auto; */
+}
+
+.formHolder{
     flex-direction: column;
     justify-content: space-evenly;
+    height: 100%;
+    width: 40%;
+}
+
+.descriptionHolder{
+    height: 100%;
+    width: 60%;
 }
 
 .footer{
     text-align: center;
     padding: 5px;
     background: #cccccc;
-    height: 10%;
-}
-
-.contentHolder{
-    width: 50%;
-    border: 1px solid #cccccc;
-    padding: 15px;
-}
-
-.contentHolder>div{
-    padding: 5px 10px;
-}
-
-.dropdownHolder{
-    padding: 5px 10px;
+    height: 5%;
 }

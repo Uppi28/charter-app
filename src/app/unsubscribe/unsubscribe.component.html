@@ -1,0 +1,26 @@
+<form action="" (ngSubmit)="onSubmit()">
+  <div class="unsubscriptionBox contentHolder">
+    <div class="row noMargin alignCenter" style="justify-content: flex-start">
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">Asset:</div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <mat-form-field>
+          <mat-select [(value)]="selectedAsset">
+            <mat-option [value]="asset" *ngFor="let asset of Assets" (click)="assetClicked()">{{asset}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row noMargin alignCenter">
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">Email:</div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <mat-form-field>
+          <input matInput placeholder="Enter your email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row noMargin">
+      <button style="float: right" mat-button mat-raised-button color="warn" type="submit">Unsubscribe</button>
+    </div>
+  </div>
+</form>
